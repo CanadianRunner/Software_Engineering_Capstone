@@ -1,0 +1,39 @@
+@import 'master-styles.scss';
+
+.navbar {
+  background: $secondaryColor;
+  width: 60px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  :hover {
+    color: #FDE46D;
+  }
+
+  &__link-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__developer {
+    margin-bottom: 25px;
+  }
+
+  &__logo {
+      width: 70px;
+      height: 70px;
+  }
+}
+
+.active {
+  color: #FDE46D;
+}

@@ -1,0 +1,58 @@
+@import 'master-styles.scss';
+
+.projects {
+  padding: 5%;
+
+  &__title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #213D58;
+    padding: 2%;
+  }
+
+  &__card-groups {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 5%;
+    gap: 25px;
+  }
+  
+  &__card {
+    max-height: 35%;
+    max-width: 35%;
+
+  }
+
+  &__card-image {
+    object-fit: cover;
+  }
+
+  &__card-content {
+    padding: 15px;
+  }
+}
+
+.relative-title {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 99999;
+  bottom: 100%;
+  left: 0;
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  background: linear-gradient(
+    hsl(20 0% 0% / .7),
+    hsl(0 0% 0% / 1.2)
+  );
+}
+
+.card-hover {
+  background: linear-gradient(
+    hsl(20 0% 0% / .3),
+    hsl(0 0% 0% / .7)
+  );
+}
