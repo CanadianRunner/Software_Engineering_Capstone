@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/seankeane/Desktop/d424-software-engineering-capstone/portfolio-page-backend/portfolio-page-backend.csproj": {}
+    "C:\\Users\\seank\\Documents\\code\\Software_Engineering_Capstone\\portfolio-page-backend\\portfolio-page-backend.csproj": {}
   },
   "projects": {
-    "/Users/seankeane/Desktop/d424-software-engineering-capstone/portfolio-page-backend/portfolio-page-backend.csproj": {
+    "C:\\Users\\seank\\Documents\\code\\Software_Engineering_Capstone\\portfolio-page-backend\\portfolio-page-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/seankeane/Desktop/d424-software-engineering-capstone/portfolio-page-backend/portfolio-page-backend.csproj",
+        "projectUniqueName": "C:\\Users\\seank\\Documents\\code\\Software_Engineering_Capstone\\portfolio-page-backend\\portfolio-page-backend.csproj",
         "projectName": "portfolio-page-backend",
-        "projectPath": "/Users/seankeane/Desktop/d424-software-engineering-capstone/portfolio-page-backend/portfolio-page-backend.csproj",
-        "packagesPath": "/Users/seankeane/.nuget/packages/",
-        "outputPath": "/Users/seankeane/Desktop/d424-software-engineering-capstone/portfolio-page-backend/obj/",
+        "projectPath": "C:\\Users\\seank\\Documents\\code\\Software_Engineering_Capstone\\portfolio-page-backend\\portfolio-page-backend.csproj",
+        "packagesPath": "C:\\Users\\seank\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\seank\\Documents\\code\\Software_Engineering_Capstone\\portfolio-page-backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/seankeane/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\seank\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -44,6 +44,12 @@
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
             },
@@ -91,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
