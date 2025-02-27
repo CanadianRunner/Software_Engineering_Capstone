@@ -38,8 +38,7 @@ function Education(props) {
             </div>
             <div className="education__body">
             <p>
-                I am currently attending Western Governors University and will
-                complete my B.S. in Software Engineering, focusing on Java.
+            I graduated from Western Governors University in September 2024 with a B.S. in Software Engineering, Java track.
               </p>
               <br></br>
               <p>

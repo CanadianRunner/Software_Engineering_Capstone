@@ -481,3 +481,328 @@ FROM `Certifications` AS `c`
 2025-02-19 19:31:52.270 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 60.9843 ms
 2025-02-19 19:31:52.271 -08:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Certifications?timestamp=1740022312189 - 200 null application/json; charset=utf-8 67.4809ms
 2025-02-19 19:33:26.428 -08:00 [INF] Application is shutting down...
+2025-02-19 23:20:44.894 -08:00 [INF] Starting the web host
+2025-02-19 23:20:45.003 -08:00 [INF] User profile is available. Using 'C:\Users\seank\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-19 23:20:45.070 -08:00 [WRN] The WebRootPath was not found: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend\wwwroot. Static files may be unavailable.
+2025-02-19 23:20:45.102 -08:00 [INF] Now listening on: https://localhost:5001
+2025-02-19 23:20:45.103 -08:00 [INF] Now listening on: http://localhost:5000
+2025-02-19 23:20:45.105 -08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-19 23:20:45.105 -08:00 [INF] Hosting environment: Development
+2025-02-19 23:20:45.106 -08:00 [INF] Content root path: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend
+2025-02-19 23:20:51.551 -08:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:5001/api/Certifications?timestamp=1740036051483 - null null
+2025-02-19 23:20:51.567 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:20:51.570 -08:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:5001/api/Certifications?timestamp=1740036051483 - 204 null null 20.1153ms
+2025-02-19 23:20:51.575 -08:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Certifications?timestamp=1740036051483 - null null
+2025-02-19 23:20:51.583 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:20:51.600 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:20:51.614 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:20:52.195 -08:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:20:52.251 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:20:52.298 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 679.8325ms
+2025-02-19 23:20:52.299 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:20:52.301 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 702.1993 ms
+2025-02-19 23:20:52.307 -08:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Certifications?timestamp=1740036051483 - 200 null application/json; charset=utf-8 732.0262ms
+2025-02-19 23:20:57.632 -08:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:5001/api/Certifications?timestamp=1740036057623 - null null
+2025-02-19 23:20:57.636 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:20:57.637 -08:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:5001/api/Certifications?timestamp=1740036057623 - 204 null null 5.2841ms
+2025-02-19 23:20:57.653 -08:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Certifications?timestamp=1740036057623 - null null
+2025-02-19 23:20:57.659 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:20:57.661 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:20:57.663 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:20:57.689 -08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:20:57.703 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:20:57.728 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 62.4565ms
+2025-02-19 23:20:57.731 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:20:57.732 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 71.3295 ms
+2025-02-19 23:20:57.736 -08:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Certifications?timestamp=1740036057623 - 200 null application/json; charset=utf-8 82.3261ms
+2025-02-19 23:30:42.595 -08:00 [INF] Application is shutting down...
+2025-02-19 23:31:55.829 -08:00 [INF] Starting the web host
+2025-02-19 23:31:55.937 -08:00 [INF] User profile is available. Using 'C:\Users\seank\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-19 23:31:56.013 -08:00 [WRN] The WebRootPath was not found: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend\wwwroot. Static files may be unavailable.
+2025-02-19 23:31:56.046 -08:00 [INF] Now listening on: https://localhost:5001
+2025-02-19 23:31:56.047 -08:00 [INF] Now listening on: http://localhost:5000
+2025-02-19 23:31:56.049 -08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-19 23:31:56.049 -08:00 [INF] Hosting environment: Development
+2025-02-19 23:31:56.050 -08:00 [INF] Content root path: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend
+2025-02-19 23:33:42.494 -08:00 [INF] Config changed. Starting the following endpoints: 'http://0.0.0.0:5000', 'https://0.0.0.0:5001'
+2025-02-19 23:33:46.355 -08:00 [INF] Application is shutting down...
+2025-02-19 23:39:50.775 -08:00 [INF] Starting the web host
+2025-02-19 23:39:50.883 -08:00 [INF] User profile is available. Using 'C:\Users\seank\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-19 23:39:50.954 -08:00 [WRN] The WebRootPath was not found: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend\wwwroot. Static files may be unavailable.
+2025-02-19 23:39:50.975 -08:00 [WRN] Overriding address(es) 'https://localhost:5001, http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-19 23:39:50.990 -08:00 [INF] Now listening on: http://0.0.0.0:5000
+2025-02-19 23:39:50.992 -08:00 [INF] Now listening on: https://0.0.0.0:5001
+2025-02-19 23:39:50.992 -08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-19 23:39:50.993 -08:00 [INF] Hosting environment: Development
+2025-02-19 23:39:50.993 -08:00 [INF] Content root path: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend
+2025-02-19 23:45:35.753 -08:00 [INF] Application is shutting down...
+2025-02-19 23:48:04.150 -08:00 [INF] Starting the web host
+2025-02-19 23:48:04.273 -08:00 [INF] User profile is available. Using 'C:\Users\seank\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-19 23:48:04.356 -08:00 [WRN] The WebRootPath was not found: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend\wwwroot. Static files may be unavailable.
+2025-02-19 23:48:04.378 -08:00 [WRN] Overriding address(es) 'https://localhost:5001, http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-19 23:48:04.393 -08:00 [INF] Now listening on: http://0.0.0.0:5000
+2025-02-19 23:48:04.394 -08:00 [INF] Now listening on: https://0.0.0.0:5001
+2025-02-19 23:48:04.394 -08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-19 23:48:04.395 -08:00 [INF] Hosting environment: Development
+2025-02-19 23:48:04.395 -08:00 [INF] Content root path: C:\Users\seank\Documents\code\Software_Engineering_Capstone\portfolio-page-backend
+2025-02-19 23:48:41.181 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:48:41.205 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:48:41.215 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:48:41.706 -08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:48:41.742 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:48:41.790 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 570.2935ms
+2025-02-19 23:48:41.791 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:48:41.793 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 589.3927 ms
+2025-02-19 23:48:41.800 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 618.7751ms
+2025-02-19 23:50:27.196 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740037827989 - null null
+2025-02-19 23:50:27.201 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:50:27.202 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:50:27.219 -08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:50:27.231 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:50:27.298 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 93.1434ms
+2025-02-19 23:50:27.299 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:50:27.300 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 99.5199 ms
+2025-02-19 23:50:27.302 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740037827989 - 200 null application/json; charset=utf-8 105.6756ms
+2025-02-19 23:50:27.526 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:50:27.528 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:50:27.529 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:50:27.568 -08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:50:27.574 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:50:27.596 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 64.6974ms
+2025-02-19 23:50:27.597 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:50:27.597 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 69.0165 ms
+2025-02-19 23:50:27.598 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 72.4775ms
+2025-02-19 23:50:38.609 -08:00 [INF] Request starting HTTP/1.1 POST https://sean-keane.com/api/auth/login - application/json 54
+2025-02-19 23:50:38.612 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:50:38.613 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend)'
+2025-02-19 23:50:38.617 -08:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(PortfolioPageBackend.Controllers.LoginRequest) on controller PortfolioPageBackend.Controllers.AuthController (portfolio-page-backend).
+2025-02-19 23:50:38.628 -08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-19 23:50:38.631 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend) in 13.2244ms
+2025-02-19 23:50:38.632 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend)'
+2025-02-19 23:50:38.633 -08:00 [INF] HTTP POST /api/auth/login responded 200 in 20.0079 ms
+2025-02-19 23:50:38.634 -08:00 [INF] Request finished HTTP/1.1 POST https://sean-keane.com/api/auth/login - 200 null application/json; charset=utf-8 25.2732ms
+2025-02-19 23:50:38.810 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:50:38.812 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:50:38.813 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:50:38.816 -08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:50:38.839 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:50:38.869 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 55.6404ms
+2025-02-19 23:50:38.870 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:50:38.871 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 58.8134 ms
+2025-02-19 23:50:38.872 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 61.5141ms
+2025-02-19 23:52:49.640 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740037970430 - null null
+2025-02-19 23:52:49.644 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:52:49.645 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:52:49.649 -08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:52:49.671 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:52:49.736 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 89.6903ms
+2025-02-19 23:52:49.738 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:52:49.739 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 95.1803 ms
+2025-02-19 23:52:49.741 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740037970430 - 200 null application/json; charset=utf-8 100.3841ms
+2025-02-19 23:52:50.019 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:52:50.023 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:52:50.028 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:52:50.031 -08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:52:50.071 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:52:50.097 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 68.177ms
+2025-02-19 23:52:50.098 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:52:50.098 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 75.4023 ms
+2025-02-19 23:52:50.099 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 80.666ms
+2025-02-19 23:57:06.735 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:57:06.736 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:06.737 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:06.746 -08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:57:06.768 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:57:06.792 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 54.4846ms
+2025-02-19 23:57:06.794 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:06.795 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 58.4987 ms
+2025-02-19 23:57:06.795 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 60.8758ms
+2025-02-19 23:57:08.718 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038229547 - null null
+2025-02-19 23:57:08.719 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:08.720 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:08.723 -08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:57:08.730 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:57:08.763 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 42.2557ms
+2025-02-19 23:57:08.764 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:08.764 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 45.1838 ms
+2025-02-19 23:57:08.765 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038229547 - 200 null application/json; charset=utf-8 47.076ms
+2025-02-19 23:57:08.900 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:57:08.902 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:08.903 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:08.910 -08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:57:08.917 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:57:08.940 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 34.475ms
+2025-02-19 23:57:08.941 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:08.942 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 39.4180 ms
+2025-02-19 23:57:08.943 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 42.5193ms
+2025-02-19 23:57:15.641 -08:00 [INF] Request starting HTTP/1.1 POST https://sean-keane.com/api/auth/login - application/json 54
+2025-02-19 23:57:15.643 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:57:15.643 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend)'
+2025-02-19 23:57:15.645 -08:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(PortfolioPageBackend.Controllers.LoginRequest) on controller PortfolioPageBackend.Controllers.AuthController (portfolio-page-backend).
+2025-02-19 23:57:15.647 -08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-19 23:57:15.648 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend) in 2.3073ms
+2025-02-19 23:57:15.649 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend)'
+2025-02-19 23:57:15.650 -08:00 [INF] HTTP POST /api/auth/login responded 200 in 6.4449 ms
+2025-02-19 23:57:15.652 -08:00 [INF] Request finished HTTP/1.1 POST https://sean-keane.com/api/auth/login - 200 null application/json; charset=utf-8 11.1566ms
+2025-02-19 23:57:15.795 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:57:15.796 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:15.797 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:15.801 -08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:57:15.821 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:57:15.844 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 45.5564ms
+2025-02-19 23:57:15.845 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:15.845 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 49.1223 ms
+2025-02-19 23:57:15.846 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 50.9604ms
+2025-02-19 23:57:37.613 -08:00 [INF] Request starting HTTP/1.1 POST https://sean-keane.com/api/Certifications - multipart/form-data; boundary=----WebKitFormBoundarybkSBROxAp9JesPoG 3707242
+2025-02-19 23:57:37.615 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:57:37.615 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.PostCertification (portfolio-page-backend)'
+2025-02-19 23:57:37.622 -08:00 [INF] Route matched with {action = "PostCertification", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[PortfolioPageBackend.Models.Certification]] PostCertification(PortfolioPageBackend.Models.Certification, Microsoft.AspNetCore.Http.IFormFile) on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:37.996 -08:00 [INF] Executed DbCommand (259ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 2147483647) (DbType = Binary), @p2='?' (Size = 100), @p3='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Certifications` (`DateEarned`, `ImageData`, `IssuingBody`, `Name`)
+VALUES (@p0, @p1, @p2, @p3);
+SELECT `Id`
+FROM `Certifications`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2025-02-19 23:57:38.037 -08:00 [INF] Executing CreatedAtActionResult, writing value of type 'PortfolioPageBackend.Models.Certification'.
+2025-02-19 23:57:38.080 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.PostCertification (portfolio-page-backend) in 456.0116ms
+2025-02-19 23:57:38.081 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.PostCertification (portfolio-page-backend)'
+2025-02-19 23:57:38.081 -08:00 [INF] HTTP POST /api/Certifications responded 201 in 466.2082 ms
+2025-02-19 23:57:38.084 -08:00 [INF] Request finished HTTP/1.1 POST https://sean-keane.com/api/Certifications - 201 null application/json; charset=utf-8 470.5505ms
+2025-02-19 23:57:41.594 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038262420 - null null
+2025-02-19 23:57:41.596 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:41.597 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:41.605 -08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:57:41.632 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:57:41.698 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 99.751ms
+2025-02-19 23:57:41.700 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:41.700 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 104.4703 ms
+2025-02-19 23:57:41.701 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038262420 - 200 null application/json; charset=utf-8 107.2231ms
+2025-02-19 23:57:41.965 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:57:41.967 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:41.967 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:41.972 -08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:57:42.003 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:57:42.056 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 87.3495ms
+2025-02-19 23:57:42.057 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:42.057 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 90.4745 ms
+2025-02-19 23:57:42.058 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 92.4394ms
+2025-02-19 23:57:53.595 -08:00 [INF] Request starting HTTP/1.1 POST https://sean-keane.com/api/auth/login - application/json 54
+2025-02-19 23:57:53.596 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:57:53.597 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend)'
+2025-02-19 23:57:53.598 -08:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(PortfolioPageBackend.Controllers.LoginRequest) on controller PortfolioPageBackend.Controllers.AuthController (portfolio-page-backend).
+2025-02-19 23:57:53.599 -08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-19 23:57:53.599 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend) in 0.8953ms
+2025-02-19 23:57:53.600 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.AuthController.Login (portfolio-page-backend)'
+2025-02-19 23:57:53.601 -08:00 [INF] HTTP POST /api/auth/login responded 200 in 3.6729 ms
+2025-02-19 23:57:53.602 -08:00 [INF] Request finished HTTP/1.1 POST https://sean-keane.com/api/auth/login - 200 null application/json; charset=utf-8 6.9898ms
+2025-02-19 23:57:53.818 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:57:53.819 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:53.820 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:53.824 -08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:57:53.833 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:57:53.899 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 78.7616ms
+2025-02-19 23:57:53.900 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:57:53.901 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 81.7015 ms
+2025-02-19 23:57:53.902 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 83.6045ms
+2025-02-19 23:57:59.467 -08:00 [INF] Request starting HTTP/1.1 DELETE https://sean-keane.com/api/Certifications/14 - null null
+2025-02-19 23:57:59.469 -08:00 [INF] CORS policy execution successful.
+2025-02-19 23:57:59.470 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.DeleteCertification (portfolio-page-backend)'
+2025-02-19 23:57:59.475 -08:00 [INF] Route matched with {action = "DeleteCertification", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCertification(Int32) on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:57:59.546 -08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+WHERE `c`.`Id` = @__p_0
+LIMIT 1
+2025-02-19 23:57:59.571 -08:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM `Certifications`
+WHERE `Id` = @p0;
+2025-02-19 23:57:59.575 -08:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-02-19 23:57:59.576 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.DeleteCertification (portfolio-page-backend) in 99.4969ms
+2025-02-19 23:57:59.576 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.DeleteCertification (portfolio-page-backend)'
+2025-02-19 23:57:59.577 -08:00 [INF] HTTP DELETE /api/Certifications/14 responded 204 in 107.0161 ms
+2025-02-19 23:57:59.579 -08:00 [INF] Request finished HTTP/1.1 DELETE https://sean-keane.com/api/Certifications/14 - 204 null null 111.6314ms
+2025-02-19 23:58:01.479 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:58:01.480 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:01.481 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:58:01.483 -08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:58:01.487 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:58:01.515 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 33.9998ms
+2025-02-19 23:58:01.516 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:01.516 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 36.1963 ms
+2025-02-19 23:58:01.517 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 38.4383ms
+2025-02-19 23:58:04.094 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038284936 - null null
+2025-02-19 23:58:04.095 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:04.096 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:58:04.099 -08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:58:04.119 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:58:04.142 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 45.6205ms
+2025-02-19 23:58:04.143 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:04.143 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 48.3930 ms
+2025-02-19 23:58:04.144 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038284936 - 200 null application/json; charset=utf-8 49.97ms
+2025-02-19 23:58:04.292 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:58:04.293 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:04.294 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:58:04.297 -08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:58:04.311 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:58:04.341 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 46.067ms
+2025-02-19 23:58:04.342 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:04.342 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 49.4639 ms
+2025-02-19 23:58:04.343 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 51.6375ms
+2025-02-19 23:58:56.522 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038337380 - null null
+2025-02-19 23:58:56.525 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:56.526 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:58:56.529 -08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:58:56.534 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:58:56.570 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 43.004ms
+2025-02-19 23:58:56.571 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:56.571 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 46.3052 ms
+2025-02-19 23:58:56.572 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications?timestamp=1740038337380 - 200 null application/json; charset=utf-8 49.3601ms
+2025-02-19 23:58:56.812 -08:00 [INF] Request starting HTTP/1.1 GET https://sean-keane.com/api/Certifications - null null
+2025-02-19 23:58:56.814 -08:00 [INF] Executing endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:56.816 -08:00 [INF] Route matched with {action = "GetCertifications", controller = "Certifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Object]]] GetCertifications() on controller PortfolioPageBackend.Controllers.CertificationsController (portfolio-page-backend).
+2025-02-19 23:58:56.825 -08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`DateEarned`, `c`.`ImageData`, `c`.`IssuingBody`, `c`.`Name`
+FROM `Certifications` AS `c`
+2025-02-19 23:58:56.846 -08:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PortfolioPageBackend.Models.Certification, portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType2`6[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], portfolio-page-backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-19 23:58:56.868 -08:00 [INF] Executed action PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend) in 48.9124ms
+2025-02-19 23:58:56.869 -08:00 [INF] Executed endpoint 'PortfolioPageBackend.Controllers.CertificationsController.GetCertifications (portfolio-page-backend)'
+2025-02-19 23:58:56.870 -08:00 [INF] HTTP GET /api/Certifications responded 200 in 55.7018 ms
+2025-02-19 23:58:56.870 -08:00 [INF] Request finished HTTP/1.1 GET https://sean-keane.com/api/Certifications - 200 null application/json; charset=utf-8 58.4801ms
