@@ -9,6 +9,7 @@ using PortfolioPageBackend.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.Features;
 using Serilog;
+using Microsoft.AspNetCore.Cors;
 
 namespace portfolio_page_backend
 {
@@ -28,7 +29,12 @@ namespace portfolio_page_backend
                 options.AddPolicy("AllowAllOrigins",
                     builder =>
                     {
-                        builder.AllowAnyOrigin()
+                        builder.WithOrigins(
+                    "https://sean-keane.com",
+                    "http://sean-keane.com",
+                    "http://localhost:3000",
+                    "https://localhost:3000"
+                )
                                .AllowAnyMethod()
                                .AllowAnyHeader();
                     });

@@ -55,7 +55,7 @@ function Home() {
     setError(null);
 
     try {
-      const response = await fetch(`https://localhost:5001/api/Certifications?timestamp=${Date.now()}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/Certifications?timestamp=${Date.now()}`, {
         headers: {
           "Cache-Control": "no-cache"
         }
