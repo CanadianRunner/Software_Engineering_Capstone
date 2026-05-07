@@ -4,9 +4,10 @@
   background: $secondaryColor;
   width: 60px;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
-  z-index: 3;
+  left: 0;
+  z-index: 1000;
   min-height: 500px;
   display: flex;
   flex-direction: column;
