@@ -1,0 +1,12 @@
+# Secrets / config
+appsettings.json
+appsettings.*.json
+!appsettings.Example.json
+
+# Build artifacts
+bin/
+obj/
+
+# Logs
+logs/
+*.log

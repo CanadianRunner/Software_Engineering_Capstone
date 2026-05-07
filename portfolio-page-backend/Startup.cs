@@ -36,7 +36,8 @@ namespace portfolio_page_backend
                     "https://localhost:3000"
                 )
                                .AllowAnyMethod()
-                               .AllowAnyHeader();
+                               .AllowAnyHeader()
+                               .AllowCredentials();
                     });
             });
 
