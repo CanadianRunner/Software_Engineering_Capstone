@@ -51,6 +51,7 @@ function Home() {
   }, [isMobile]);
 
   const fetchCertifications = async () => {
+    console.log("🔍 Fetching certs from:", process.env.REACT_APP_BACKEND_CALL + "/api/Certifications");
     setLoading(true);
     setError(null);
 
@@ -60,6 +61,11 @@ function Home() {
           "Cache-Control": "no-cache"
         }
       });
+      // console.log("🔧 Fetch URL:", `https://localhost:5001/api/Certifications?timestamp=${Date.now()}`);
+
+      // const response = await fetch(`https://localhost:5001/api/Certifications?timestamp=${Date.now()}`, {
+      //   headers: { "Cache-Control": "no-cache" }
+      // });
 
       if (!response.ok) {
         throw new Error("Failed to fetch certifications");
