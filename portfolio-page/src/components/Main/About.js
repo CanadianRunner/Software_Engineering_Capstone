@@ -16,16 +16,14 @@ function About(props) {
             <div className="about__body">
               <br></br>
               <p>
-                Thanks for stopping by! My name's Sean Keane and I'm a software developer. I live and try and
-                keep dry in Portland, Oregon. I'm a dual Irish/Canadian citizen
-                who you'll find happiest with a cup of Barry's Irish breakfast
+                Thanks for stopping by! My name's Sean Keane and I'm a Security Operations 
+                Engineer at Microsoft. I live and try to keep dry in Portland, Oregon. I'm a dual 
+                Irish/Canadian citizen you'll find happiest with a cup of Barry's Irish breakfast 
                 tea and a bowl of poutine.
               </p>
               <br></br>
               <p>
-                I'm a fast learner and would positively impact your team. If
-                you have an opportunity you think I'd be a good fit for, I'd
-                love it if you reached out!
+                Always happy to connect with interesting people doing interesting things! If you want to chat about anything, whether it's security, software development, or just life in general, feel free to reach out!
               </p>
               <br></br>
             </div>
