@@ -16,10 +16,7 @@ function About(props) {
             <div className="about__body">
               <br></br>
               <p>
-                Thanks for stopping by! My name's Sean Keane and I'm a Security Operations 
-                Engineer at Microsoft. I live and try to keep dry in Portland, Oregon. I'm a dual 
-                Irish/Canadian citizen you'll find happiest with a cup of Barry's Irish breakfast 
-                tea and a bowl of poutine.
+                Thanks for stopping by! My name's Sean Keane and I'm a Security Operations Engineer at Microsoft. I live and try to keep dry in Portland, Oregon.  I'm a dual Irish/Canadian citizen you'll find happiest with a cup of Barry's Irish breakfast tea and a bowl of poutine.
               </p>
               <br></br>
               <p>
