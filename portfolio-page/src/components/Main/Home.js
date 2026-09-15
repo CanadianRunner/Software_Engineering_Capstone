@@ -61,12 +61,6 @@ function Home() {
           "Cache-Control": "no-cache"
         }
       });
-      // console.log("🔧 Fetch URL:", `https://localhost:5001/api/Certifications?timestamp=${Date.now()}`);
-
-      // const response = await fetch(`https://localhost:5001/api/Certifications?timestamp=${Date.now()}`, {
-      //   headers: { "Cache-Control": "no-cache" }
-      // });
-
       if (!response.ok) {
         throw new Error("Failed to fetch certifications");
       }
@@ -110,10 +104,6 @@ function Home() {
       <Projects />
       <Contact />
 
-      {/* Debugging: Manual Refresh Button */}
-      {/* <button onClick={fetchCertifications} style={{ marginTop: "20px", padding: "10px", cursor: "pointer" }}>
-        Refresh Certifications
-      </button> */}
     </div>
   );
 }
