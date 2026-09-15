@@ -15,17 +15,17 @@ Branch: `v2-phase-0-foundations`, merged into `v2` by pull request when acceptan
 - [x] Docker Compose for local MySQL with a `portfolio_dev` database (`portfolio-page-backend/dev/docker-compose.yml`).
 - [x] `docs/DEPLOY.md` and `docs/RESTART.md` written (Restart Guide converted from the existing document and corrected).
 - [x] `scripts/smoke.sh` (Mac) and `scripts/smoke.ps1` (Windows): hit `/api/Certifications` and the frontend root, check status codes and that the certification count is greater than zero.
-- [ ] Full stack runs locally on the Mac against the local database with seed data.
+- [x] Full stack runs locally on the Mac against the local database with seed data.
 
 Out of scope: any UI change, any auth change, any schema change.
 
 ## Acceptance
 
-- [ ] `git diff v1-final v2 --stat` shows only deletions, config, docs, and scripts.
-- [ ] Full stack runs on the Mac from a fresh clone following `docs/DEPLOY.md` alone.
-- [ ] Windows: pull `v2`, build, restart; smoke script passes; site visually identical (screenshots compared at 1440 width).
+- [x] `git diff v1-final v2 --stat` shows only deletions, config, docs, and scripts (plus one package version bump for the vulnerability findings and the screenshot files).
+- [x] Full stack runs on the Mac from a fresh clone following `docs/DEPLOY.md` alone.
+- [x] Mac build screenshots at 1440 match the v1 baseline. Windows deploy: deferred to launch (design document, 2026-09-14 decision).
 - [x] `npm audit` and `dotnet list package --vulnerable` run; findings fixed or recorded.
-- [ ] Environment contract (design document Section 4) re-verified on both machines.
+- [x] Environment contract (design document Section 4) re-verified on the Mac; corrected for `appsettings.json`. Windows: at the Phase 1 rehearsal.
 
 ## Rollback
 
@@ -49,29 +49,49 @@ Whether `serve` should be replaced by having the backend host the built frontend
 
 Cloned the phase branch into a scratch directory and followed `docs/DEPLOY.md`.
 
+First attempt exposed three machine-level blockers, all since resolved: Docker Desktop was not installed (the `docker` command was a dangling link), the dev certificate could not be created from a non-interactive shell (fixed by `dotnet dev-certs https --clean` then `--trust` in a terminal), and a Homebrew MySQL service held port 3306 (stopped with `brew services stop mysql`). Second attempt:
+
 | Step | Result |
 |---|---|
 | Clone, check out branch | ok |
-| `dotnet dev-certs https --trust` | failed: the keychain refused the new certificate from the non-interactive shell (`AppleCommonCryptoCryptographicException`). Needs a terminal where the keychain prompt can be answered. |
-| Docker Compose up | not run: no Docker engine on this Mac (the `docker` command is a dangling link to a removed Docker.app). |
+| `dotnet dev-certs https --trust` | ok, trusted certificate present |
+| Docker Compose up | ok, container healthy in under 30 s |
 | Copy `appsettings.Example.json` to `appsettings.json` | ok |
 | `dotnet build` | ok, 0 warnings |
-| `dotnet ef migrations list --no-connect` | ok: InitialCreate, SecondMigration, UpdateCertificationSchema. The SqlServer removal did not affect the migrations. |
-| `dotnet ef database update`, `dotnet run`, seed check | blocked on the two items above. A Homebrew MySQL is already listening on 3306 (launchd service) with a root password that is not on hand; it will also collide with the Compose port mapping until it is stopped. |
+| `dotnet ef database update` | ok, three migrations applied: InitialCreate, SecondMigration, UpdateCertificationSchema |
+| Seed data | 11 rows in `Certifications` |
+| `dotnet run`, `npm start` | both up within 5 s |
+| `scripts/smoke.sh` | all four checks ok (API 200, count 11, frontend 200, app shell present) |
 | `npm ci`, `npm run build` | ok. main JS 133.52 kB, main CSS 9.99 kB after gzip. |
 | `npm test` | ok, 3 suites, 4 tests |
-| `scripts/smoke.sh` | not run: needs the backend. |
+
+### Screenshot comparison at 1440
+
+`screenshots/phase-0-v1-baseline-1440.png` (built from tag `v1-final`) and `screenshots/phase-0-v2-1440.png` (this branch), both full-page captures of the production build served on port 3000 against the local backend. Same page height (5431 px). A pixel comparison finds differences only in two regions: the bouncing chevrons under the splash (x 679 to 760) and the desk video beside the About card (x 763 to 1419), both animated. Every other row is identical.
+
+### Package bump
+
+`dotnet list package --vulnerable` reported two High transitive advisories. Fixed in this phase by raising the EF Core packages from 8.0.8 to 8.0.31 and `MySql.EntityFrameworkCore` from 8.0.5 to 8.0.28. Build clean, migrations list unchanged, audit now reports no vulnerable packages.
 
 `npm run build` and `npm test` also passed on the working checkout after every removal commit.
 
 ### Audits
 
-`dotnet list package --vulnerable --include-transitive`: two transitive findings, both High, both pulled in by the .NET 8.0.8 package set: `Microsoft.Extensions.Caching.Memory` 8.0.0 (GHSA-qj66-m88j-hmgj) and `System.Text.Json` 8.0.4 (GHSA-8g4q-xg66-9fp4). Fix is to raise the EF Core and MySQL provider references to a newer 8.0.x patch; recorded here and proposed for Phase 1 alongside the frontend dependency work, since it changes package versions.
+`dotnet list package --vulnerable --include-transitive`: before the bump, `Microsoft.Extensions.Caching.Memory` 8.0.0 (GHSA-qj66-m88j-hmgj) and `System.Text.Json` 8.0.4 (GHSA-8g4q-xg66-9fp4), both High. After the bump: none.
 
 `npm audit`: 68 findings (3 critical, 35 high, 15 moderate, 15 low). All but one are transitive dependencies of `react-scripts`, which is unmaintained and is removed in Phase 1; that removal is the fix. The one other direct finding is `react-router-dom`, fixable by a patch bump in Phase 1.
 
-### Not yet done
+### Explore: backend serving the built frontend
 
-- Mac: database, backend run, seed check, and smoke script, blocked as above.
-- Windows: pull, build, restart, smoke, and the 1440 screenshot comparison. Done by the owner from `docs/DEPLOY.md`.
-- Explore note on the backend serving the built frontend: not written yet.
+Not decided; for Phase 7. Trade-offs noted now:
+
+- One process instead of two: the backend would serve `build/` as static files with a fallback to `index.html`. One window on Windows, one thing to restart, one port for Nginx to proxy, and the same-origin API base needs no explanation.
+- Against: the frontend could no longer be redeployed without restarting the API; static file serving and caching headers become the backend's job; the Vite dev server still runs separately on the Mac, so the two machines would differ more, not less.
+- Middle option: keep `serve` but have `start-portfolio.ps1` manage it as a background job. Cheapest change, no architecture shift.
+
+### Deviations from the design document
+
+- Branch naming uses a hyphen (Section 9 and 10 updated).
+- `appsettings.json` is per-machine and gitignored, not committed (Section 4 updated).
+- Windows deploy deferred to a single launch; Phases 1 and 2 add a Windows rehearsal instead (Sections 1, 4, 9, 10 and the decision log updated).
+- Package version bump included in Phase 0 rather than Phase 1, at the owner's request, to clear the audit.
