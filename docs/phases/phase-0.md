@@ -35,6 +35,14 @@ Out of scope: any UI change, any auth change, any schema change.
 
 Whether `serve` should be replaced by having the backend host the built frontend (one process instead of two). Record the trade-offs here; decide in Phase 7.
 
+## Notes so far
+
+- Phase branches are named `v2-phase-N-short-name` (hyphen, not slash). Git cannot hold a branch `v2` and a branch `v2/...` at the same time. The design document was updated to match before it was committed.
+- The certificate images deleted from `portfolio-page/src/assets` were only referenced by the dead `Data.js`. The same images remain in the database (seeded blobs) and in `portfolio-page-backend/images/certifications/`, which is what the carousel and the seed actually use.
+- `contact.scss` carried a full commented-out copy of an earlier Contact component. It was removed with the Home.js debug code.
+- Bundle after dependency removal (CRA, gzip): main JS 133.73 kB, main CSS 9.99 kB. Baseline for Phase 1.
+- Docker is not installed on the Mac at the time of writing, so the Compose file is written but not yet exercised locally. Recorded as an open item for the Mac acceptance run.
+
 ## Results
 
 To be filled in when the phase completes: checklist outcomes, screenshots under `docs/phases/screenshots/`, deviations from the design document and why, anything learned.
