@@ -18,7 +18,7 @@ The site is also itself a demonstration. A security engineer's portfolio should 
 
 1. Build on what exists. Keep the folder structure, the section order, the palette family, the fixed icon navbar, the splash and desk videos, the leveling-up moment on contact, and the developer page. Improve them; do not replace them for novelty.
 2. Security is a feature. Every phase leaves the site at least as secure as before. Phase 2 is dedicated to it.
-3. Ship in phases. Each phase has a goal, an explicit scope, acceptance tests, and a rollback. A phase is done when its acceptance tests pass in production, not when the code compiles.
+3. Ship in phases, launch once. Each phase has a goal, an explicit scope, acceptance tests, and a rollback. A phase is done when its acceptance tests pass on the Mac (and in the Windows rehearsal where the phase calls for one), not when the code compiles. Production on the Windows box is not touched until v2 is complete and accepted; every phase's Windows deploy is deferred to launch.
 4. Two machines, one contract. Development happens on a Mac; production runs on a Windows 11 PC at home. The configuration contract (Section 4) is settled in Phase 0 and re-verified at the end of every phase, because deployment configuration has been the source of most past pain.
 5. Nothing generic. The site should look like one person's work. Section 5 lists the visual patterns to avoid and the ones to keep.
 6. The repository is public and is part of the portfolio. Commit messages, comments, the README, and PR descriptions describe the work itself. No tooling attribution, trailers, or footers of any kind.
@@ -140,7 +140,7 @@ Rules:
 - No secret ever appears in a committed file. The backend `.gitignore` excludes `appsettings.json` and `appsettings.*.json` except the Example. The Windows machine keeps its existing `appsettings.json`; the Mac creates one from the Example pointing at the local Docker MySQL.
 - `appsettings.Example.json` is updated in the same commit as any new configuration key.
 - Non-secret defaults (logging levels, upload limits, cookie names, rate limits) are set in code with a configuration override, and the override key is documented in the Example. There is no committed settings file.
-- On Windows, `start-portfolio.ps1` sets `$env:ASPNETCORE_ENVIRONMENT`. It stays `Development` until Phase 2 delivers proper Production error handling, then flips to `Production` as a Phase 2 acceptance step.
+- On Windows, `start-portfolio.ps1` sets `$env:ASPNETCORE_ENVIRONMENT`. It stays `Development` until Phase 2 delivers proper Production error handling; the flip to `Production` is verified in the Phase 2 Windows rehearsal and applied to the live site at launch.
 - Passwords are never stored in configuration after Phase 2. Only hashes in the database.
 
 ### Frontend configuration
@@ -170,7 +170,7 @@ Add a `.gitattributes` in Phase 0: `* text=auto` and `*.ps1 text eol=crlf`. This
 
 ### Deploy checklist
 
-Lives in `docs/DEPLOY.md` (written in Phase 0, revised whenever a phase changes it). The end of every phase runs the checklist on the Windows box and records the result in the phase notes.
+Lives in `docs/DEPLOY.md` (written in Phase 0, revised whenever a phase changes it). The end of every phase runs the Mac checklist and records the result in the phase notes. Phases 1 and 2 end with a Windows rehearsal (a separate clone, ports, and database on the Windows box, described in `docs/DEPLOY.md`) so the production machine is exercised without touching the live site. The production deploy itself is a single launch step at the end of v2, with its own checklist in `docs/DEPLOY.md` that accumulates the one-time cutover steps as phases complete.
 
 ---
 
@@ -347,7 +347,7 @@ Acceptance
 
 - `git diff v1-final v2 --stat` shows only deletions, config, docs, and scripts.
 - Full stack runs on the Mac from a fresh clone following `docs/DEPLOY.md` alone.
-- Windows: pull `v2`, build, restart; smoke script passes; site visually identical (screenshots compared at 1440 width).
+- Mac build screenshots at 1440 width match the v1 baseline. Windows deploy: deferred to launch.
 
 Rollback: `git checkout production_v1`, rebuild, restart.
 
@@ -375,7 +375,7 @@ Acceptance
 - `npm run build` produces `build/`; `npx serve -s build -l 3000` serves the site; screenshots at 1440 match Phase 0 baseline.
 - `npm run test` and `npm run lint` pass.
 - Bundle size recorded in the phase notes (baseline for Phase 6).
-- Windows deploy checklist passes; Restart Guide needs no change.
+- Windows rehearsal passes (separate clone, ports 5002 and 3001, database `portfolio_v2`; smoke script green). Windows deploy: deferred to launch.
 
 Rollback: revert the merge on `v2`; production_v1 unaffected.
 
@@ -413,7 +413,7 @@ Scope (operations)
 
 Out of scope: content model, new admin features beyond security, styling.
 
-Acceptance (all verified against production after deploy)
+Acceptance (verified on the Mac, then repeated in the Windows rehearsal against the rehearsal ports; Windows deploy deferred to launch)
 
 - `curl -X DELETE https://sean-keane.com/api/Certifications/1` returns `401`.
 - Logged-in request without the antiforgery header returns `400`; with it, succeeds.
@@ -546,7 +546,7 @@ Explore: staging subdomain served from the Mac for previewing phases before they
 
 ## 10. Working agreements for the coding session
 
-- Read this document and `docs/DEPLOY.md` before starting any phase. Work one phase at a time. Do not start the next phase until the current one's acceptance tests have passed in production and its phase notes are written.
+- Read this document and `docs/DEPLOY.md` before starting any phase. Work one phase at a time. Do not start the next phase until the current one's acceptance tests have passed on the Mac (and in the Windows rehearsal where required) and its phase notes are written. Production is deployed once, at launch.
 - Branch per phase (`v2-phase-N-short-name`), pull request into `v2`, never into `production_v1`.
 - Before writing code for a phase, write the acceptance checklist into `docs/phases/phase-N.md`. After the phase, fill it in with results, screenshots (stored under `docs/phases/screenshots/`), and anything learned.
 - `Program.cs`, `Startup.cs`, `launchSettings.json`, `start-portfolio.ps1`, and `appsettings*.json` change only through tasks explicitly listed in this document, each in its own commit with the reason in the message. Propose the diff first and wait for approval.
@@ -576,6 +576,8 @@ Explore: staging subdomain served from the Mac for previewing phases before they
 | 2026-09-14 | EmailJS replaced with a backend contact endpoint | EmailJS unreliable; removes third-party keys from the browser |
 | 2026-09-14 | Dark-first palette derived from v1 colors | Keep the site's identity; avoid a generic dark theme |
 | 2026-09-14 | Keep splash video, desk video, icon rail, level-up moment | They are the site's signature |
+| 2026-09-14 | Production untouched until v2 is complete; Windows rehearsals after Phases 1 and 2; one launch | Fewer risky deploys to the home machine; the rehearsal still catches Mac/Windows drift early |
+| 2026-09-14 | Interim Cloudflare rule blocks non-GET requests to `/api/*` until launch | Closes the unauthenticated write endpoints on v1 now; Phase 2's authentication replaces it at launch and the rule is removed in the launch checklist |
 
 Open questions
 
