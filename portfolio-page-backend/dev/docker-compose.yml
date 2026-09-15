@@ -1,0 +1,30 @@
+# Local MySQL for development on the Mac. Production uses the MySQL
+# service installed on the Windows host and never touches this file.
+#
+#   docker compose -f dev/docker-compose.yml up -d
+#   docker compose -f dev/docker-compose.yml down        # keep data
+#   docker compose -f dev/docker-compose.yml down -v     # drop data
+#
+# The credentials below are for the local container only. Copy them into
+# appsettings.Development.json (see appsettings.Example.json).
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: portfolio-mysql-dev
+    environment:
+      MYSQL_ROOT_PASSWORD: devroot
+      MYSQL_DATABASE: portfolio_dev
+      MYSQL_USER: portfolio
+      MYSQL_PASSWORD: portfolio
+    ports:
+      - "3306:3306"
+    volumes:
+      - portfolio-mysql-dev:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pdevroot"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  portfolio-mysql-dev:
