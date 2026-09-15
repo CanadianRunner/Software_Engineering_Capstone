@@ -130,16 +130,16 @@ This section exists because configuration drift between the two machines has cos
 
 | File | Committed | Contains | Used on |
 |---|---|---|---|
-| `appsettings.json` | yes | non-secret defaults: logging levels, allowed hosts, upload limits, cookie names, rate limits | both |
-| `appsettings.Example.json` | yes | every key with placeholder values; the template for the two files below | reference |
-| `appsettings.Development.json` | no (gitignored) | local MySQL connection string, local settings | Mac |
-| `appsettings.Production.json` | no (gitignored) | production MySQL connection string, production settings | Windows |
+| `appsettings.Example.json` | yes | every key with placeholder values; the template for the per-machine file | reference |
+| `appsettings.json` | no (gitignored) | the per-machine file: connection string and every other setting, copied from the Example and filled in | both |
+| `appsettings.Development.json`, `appsettings.Production.json` | no (gitignored) | optional per-environment overrides; not required on either machine | either |
 | `Properties/launchSettings.json` | yes | `dotnet run` profiles; sets `ASPNETCORE_ENVIRONMENT=Development` | Mac |
 
 Rules:
 
-- No secret ever appears in a committed file. The backend `.gitignore` already excludes `appsettings.*.json` except the Example.
+- No secret ever appears in a committed file. The backend `.gitignore` excludes `appsettings.json` and `appsettings.*.json` except the Example. The Windows machine keeps its existing `appsettings.json`; the Mac creates one from the Example pointing at the local Docker MySQL.
 - `appsettings.Example.json` is updated in the same commit as any new configuration key.
+- Non-secret defaults (logging levels, upload limits, cookie names, rate limits) are set in code with a configuration override, and the override key is documented in the Example. There is no committed settings file.
 - On Windows, `start-portfolio.ps1` sets `$env:ASPNETCORE_ENVIRONMENT`. It stays `Development` until Phase 2 delivers proper Production error handling, then flips to `Production` as a Phase 2 acceptance step.
 - Passwords are never stored in configuration after Phase 2. Only hashes in the database.
 
