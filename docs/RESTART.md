@@ -94,6 +94,12 @@ its own is Phase 7 work.
 
 ## Known rough edges
 
+- The built frontend uses an empty API base, so it requests `/api/...` on whatever host
+  served the page. Opening `http://localhost:3000` directly on the Windows box therefore
+  shows the page without certifications, because nothing on port 3000 answers `/api`.
+  That is expected. Verify the frontend through `https://sean-keane.com`, where Nginx
+  routes `/api` to the backend, or with `scripts\smoke.ps1` against that host.
+
 - The environment is `Development` until Phase 2, so API errors show developer pages.
   Nginx only forwards `/api`, so Swagger is not reachable from outside.
 - Ports 5001 and 3000 are only bound on localhost. Only Nginx is exposed by the router.

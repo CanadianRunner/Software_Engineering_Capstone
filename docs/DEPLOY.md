@@ -39,15 +39,16 @@ record the result in `docs/phases/phase-N.md`.
 
    Wait until `docker compose -f dev/docker-compose.yml ps` shows the container healthy.
 
-4. Create the backend settings. Copy `appsettings.Example.json` to
-   `appsettings.Development.json` and fill in the values. For the Compose database
-   the connection string is:
+4. Create the backend settings. Copy `appsettings.Example.json` to `appsettings.json`
+   and fill in the values. For the Compose database the connection string is:
 
    ```
    server=localhost;port=3306;database=portfolio_dev;user=portfolio;password=portfolio
    ```
 
-   `appsettings.Development.json` is ignored by git and must never be committed.
+   `appsettings.json` is ignored by git and must never be committed. The
+   `Authentication` username and password are the developer page login until Phase 2
+   replaces them; choose anything for local use.
 
 5. Apply migrations and seed data, then start the backend.
 
@@ -89,45 +90,51 @@ Production runs the `v2` branch. `start-portfolio.ps1` starts every part of the 
    mysqldump -u root -p portfolio > C:\backups\portfolio-YYYY-MM-DD.sql
    ```
 
-3. Pull the release.
+3. First v2 deploy only: remove the old untracked frontend environment file. v2 commits
+   `portfolio-page\.env.production` with an empty API base, and git refuses to check out
+   a tracked file over an untracked one with the same name.
 
    ```
    cd C:\Users\seank\Documents\code\Software_Engineering_Capstone
+   del portfolio-page\.env.production
+   ```
+
+4. Pull the release.
+
+   ```
    git fetch origin
    git checkout v2
    git pull --ff-only
    ```
 
-   If git refuses because an untracked `portfolio-page\.env.production` would be
-   overwritten, delete the local file first. The committed one is correct for production.
-
-4. Apply migrations if the release includes any.
+5. Apply migrations if the release includes any.
 
    ```
    cd portfolio-page-backend
    dotnet ef database update
    ```
 
-5. Confirm `appsettings.Production.json` (or `appsettings.Development.json` while the
-   environment is still Development, see Section 4 of the design document) contains
-   every key present in `appsettings.Example.json`. New keys are listed in the phase
-   notes for the release.
+6. Confirm the existing `appsettings.json` in `portfolio-page-backend` contains every
+   key present in `appsettings.Example.json`. New keys are listed in the phase notes
+   for the release.
 
-6. Start the stack.
+7. Start the stack.
 
    ```
    cd ..
    .\start-portfolio.ps1
    ```
 
-7. Verify.
+8. Verify.
 
    ```
    .\scripts\smoke.ps1
    .\scripts\smoke.ps1 -Api https://sean-keane.com -Web https://sean-keane.com
    ```
 
-8. Open `https://sean-keane.com` in a browser and check the certification carousel loads.
+9. Open `https://sean-keane.com` in a browser and check the certification carousel loads.
+   Do not judge the frontend from `http://localhost:3000` on the Windows box; see the
+   note in `RESTART.md` about the empty API base.
 
 ## Rollback
 
@@ -135,7 +142,7 @@ Production runs the `v2` branch. `start-portfolio.ps1` starts every part of the 
 git checkout production_v1
 ```
 
-Then repeat steps 6 and 7. `production_v1` is frozen at tag `v1-final` and ignores any
+Then repeat steps 7 and 8. `production_v1` is frozen at tag `v1-final` and ignores any
 tables added by v2, so no database change is needed for a rollback unless a phase's
 notes say otherwise.
 
