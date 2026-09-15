@@ -77,10 +77,70 @@ record the result in `docs/phases/phase-N.md`.
 
    All four checks print `ok`.
 
-## Windows: updating production
+## Windows rehearsal (end of Phases 1 and 2)
 
-Production runs the `v2` branch. `start-portfolio.ps1` starts every part of the stack;
-`docs/RESTART.md` describes what it does and how to restart pieces by hand.
+Exercises the v2 stack on the Windows machine without touching the live site. Everything
+lives in a separate folder, on separate ports, against a separate database. The live
+`production_v1` checkout, its ports (5001 and 3000), and its database are not used.
+
+One-time setup:
+
+1. Create the rehearsal database and a user for it in the MySQL service.
+
+   ```
+   mysql -u root -p -e "CREATE DATABASE portfolio_v2; CREATE USER 'portfolio_v2'@'localhost' IDENTIFIED BY '<choose>'; GRANT ALL ON portfolio_v2.* TO 'portfolio_v2'@'localhost';"
+   ```
+
+2. Clone `v2` into its own folder.
+
+   ```
+   cd C:\Users\seank\Documents\code
+   git clone https://github.com/CanadianRunner/Software_Engineering_Capstone.git portfolio-v2
+   cd portfolio-v2
+   git checkout v2
+   ```
+
+3. Copy `portfolio-page-backend\appsettings.Example.json` to `appsettings.json` in the
+   same folder and point the connection string at `portfolio_v2` with the user above.
+
+Each rehearsal:
+
+1. `git pull --ff-only` in `portfolio-v2`.
+2. Backend, in its own PowerShell window:
+
+   ```
+   cd portfolio-page-backend
+   dotnet ef database update
+   dotnet run --urls https://localhost:5002
+   ```
+
+   From Phase 2 on, add `--environment Production` to exercise the production error
+   handling and headers.
+
+3. Frontend, in a second window. The rehearsal build points at the rehearsal backend
+   directly instead of going through Nginx:
+
+   ```
+   cd portfolio-page
+   npm ci
+   $env:REACT_APP_BACKEND_CALL = "https://localhost:5002"    # VITE_API_BASE from Phase 1
+   npm run build
+   npx serve -s build -l 3001
+   ```
+
+4. Verify and record the result in the phase notes.
+
+   ```
+   .\scripts\smoke.ps1 -Api https://localhost:5002 -Web http://localhost:3001
+   ```
+
+5. Close both windows when done. Nothing from the rehearsal is left running.
+
+## Windows: launch (production cutover)
+
+Deferred until v2 is complete and accepted on the Mac. Production runs the `v2` branch
+after launch. `start-portfolio.ps1` starts every part of the stack; `docs/RESTART.md`
+describes what it does and how to restart pieces by hand.
 
 1. Stop the running backend and frontend windows (close them or press Ctrl+C in each).
 
@@ -136,6 +196,19 @@ Production runs the `v2` branch. `start-portfolio.ps1` starts every part of the 
    Do not judge the frontend from `http://localhost:3000` on the Windows box; see the
    note in `RESTART.md` about the empty API base.
 
+## Launch checklist
+
+One-time steps the real cutover needs, collected as phases complete. Each phase that
+adds a step edits this list in the same pull request. Not to be run before launch.
+
+- [ ] Phase 0: back up the production database (`mysqldump`) before anything else.
+- [ ] Phase 0: delete the untracked `portfolio-page\.env.production` before checking out `v2` (step 3 above).
+- [ ] Phase 0: confirm the production `appsettings.json` has every key in `appsettings.Example.json`.
+- [ ] Phase 2: set `ASPNETCORE_ENVIRONMENT=Production` in `start-portfolio.ps1`.
+- [ ] Phase 2: create the admin account through the one-time setup endpoint using the setup token, then remove the token from `appsettings.json`.
+- [ ] Phase 2: remove the interim Cloudflare rule that blocks non-GET requests to `/api/*`; the application's authentication replaces it.
+- [ ] After launch: run `scripts\smoke.ps1` against `https://sean-keane.com` and check the developer page login end to end.
+
 ## Rollback
 
 ```
@@ -152,8 +225,8 @@ Copy into the phase notes and fill in.
 
 - [ ] Mac: fresh clone runs following this document alone.
 - [ ] Mac: `scripts/smoke.sh` passes.
-- [ ] Windows: pull, build, restart following this document.
-- [ ] Windows: `scripts\smoke.ps1` passes locally and against `https://sean-keane.com`.
+- [ ] Windows rehearsal (Phases 1 and 2 only): `scripts\smoke.ps1` passes against ports 5002 and 3001.
+- [ ] Launch checklist above updated with any new one-time step.
 - [ ] `appsettings.Example.json` lists every key used by the release.
 - [ ] `.env.development` and `.env.production` unchanged, or the change is recorded.
 - [ ] `docs/RESTART.md` still accurate.
