@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../scss/loginModal.scss";
+import { login } from "../services/api";
 
 function LoginModal({ onLoginSuccess }) {
   const [username, setUsername] = useState("");
@@ -7,13 +8,7 @@ function LoginModal({ onLoginSuccess }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = () => {
-    fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    })
+    login({ username, password })
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {

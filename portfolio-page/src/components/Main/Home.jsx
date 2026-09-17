@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import Carousel from "../../components/Main/Carousel";
 import Education from "./Education";
 import { toast } from "react-toastify";
+import { getCertifications } from "../../services/api";
 import "react-toastify/dist/ReactToastify.min.css";
 
 function Home() {
@@ -51,16 +52,11 @@ function Home() {
   }, [isMobile]);
 
   const fetchCertifications = async () => {
-    console.log("🔍 Fetching certs from:", process.env.REACT_APP_BACKEND_CALL + "/api/Certifications");
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/Certifications?timestamp=${Date.now()}`, {
-        headers: {
-          "Cache-Control": "no-cache"
-        }
-      });
+      const response = await getCertifications({ cacheBust: true });
       if (!response.ok) {
         throw new Error("Failed to fetch certifications");
       }

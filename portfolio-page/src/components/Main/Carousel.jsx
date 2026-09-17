@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../scss/carousel.scss";
+import { getCertifications } from "../../services/api";
 
 function Carousel() {
   const [certificates, setCertificates] = useState([]);
@@ -8,7 +9,7 @@ function Carousel() {
   let timeOut = null;
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/Certifications`)
+    getCertifications()
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch certificates.");

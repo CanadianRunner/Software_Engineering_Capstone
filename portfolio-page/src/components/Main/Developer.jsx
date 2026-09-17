@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getCertifications, createCertification, updateCertification, deleteCertification } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import "../../scss/developer.scss";
 
@@ -15,7 +16,7 @@ function Developer() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/Certifications`)
+    getCertifications()
       .then((response) => response.json())
       .then((data) => setCertifications(data))
       .catch((error) => console.error("Error fetching certifications:", error));
@@ -42,10 +43,7 @@ function Developer() {
     formData.append("dateEarned", dateEarned);
     if (image) formData.append("file", image);
 
-    fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/Certifications`, {
-      method: "POST",
-      body: formData,
-    })
+    createCertification(formData)
       .then((response) => response.json())
       .then((newCert) => {
         setCertifications([...certifications, newCert]);
@@ -63,9 +61,7 @@ function Developer() {
     );
 
     if (isConfirmed) {
-      fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/Certifications/${id}`, {
-        method: "DELETE",
-      })
+      deleteCertification(id)
         .then(() => {
           setCertifications(certifications.filter((cert) => cert.id !== id));
         })
@@ -90,10 +86,7 @@ function Developer() {
     formData.append("dateEarned", dateEarned);
     if (image) formData.append("file", image);
 
-    fetch(`${process.env.REACT_APP_BACKEND_CALL}/api/Certifications/${editingId}`, {
-      method: "PUT",
-      body: formData,
-    })
+    updateCertification(editingId, formData)
       .then(() => {
         setCertifications(
           certifications.map((cert) =>
