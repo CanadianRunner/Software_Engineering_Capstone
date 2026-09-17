@@ -4,7 +4,7 @@ import LoginModal from './LoginModal';
 
 describe('LoginModal Component', () => {
   test('displays error message on failed login attempt', async () => {
-    global.fetch = jest.fn(() =>
+    global.fetch = vi.fn(() =>
       Promise.resolve({
         json: () => Promise.resolve({ success: false }),
       })
@@ -12,13 +12,13 @@ describe('LoginModal Component', () => {
   });
 
   test('calls onLoginSuccess on successful login', async () => {
-    global.fetch = jest.fn(() =>
+    global.fetch = vi.fn(() =>
       Promise.resolve({
         json: () => Promise.resolve({ success: true }),
       })
     );
 
-    const onLoginSuccess = jest.fn();
+    const onLoginSuccess = vi.fn();
 
     render(<LoginModal onLoginSuccess={onLoginSuccess} />);
 

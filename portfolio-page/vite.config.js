@@ -9,4 +9,10 @@ export default defineConfig({
     },
     server: { port: 3000, strictPort: true },
     build: { outDir: 'build', emptyOutDir: true },
+    test: {
+      environment: 'jsdom',
+      globals: true,
+      setupFiles: './src/setupTests.js',
+      include: ['src/**/*.test.{js,jsx}'],
+    },
 });

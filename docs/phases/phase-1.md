@@ -111,3 +111,15 @@ Checks: Vite build, smoke, and visual diff clean. The CRA build still compiles. 
 ### 1.4 Sass modules (done 2026-09-16)
 
 `@import 'master-styles.scss'` became `@use 'master-styles' as *` in the eight section stylesheets. `master-styles.scss` holds only variables, so `as *` keeps every `$name` reference unchanged. The Google Fonts `@import url(...)` lines are plain CSS and stay. Sass 1.78 emits no deprecation warnings either way; the migration is done ahead of Sass 1.80, where `@import` starts warning. Visual diff clean, CRA build still compiles.
+
+### 1.5 Vitest and ESLint (done 2026-09-16)
+
+`npm run test` is `vitest run` with a `test` block in `vite.config.js` (jsdom, globals, `src/setupTests.js`, which now imports `@testing-library/jest-dom/vitest`). The three test files were renamed to `.jsx` because they contain JSX, and the two `jest.fn` calls in the login test became `vi.fn`; nothing else in the tests changed. 4 of 4 pass.
+
+`npm run lint` is `eslint .` with a flat config in `eslint.config.mjs`. The `.mjs` name is deliberate: `package.json` has no `"type": "module"` until 1.6, and Node 20.18 cannot load an `.js` config written as a module. The config carries the rules CRA applied through `eslint-config-react-app`: the base recommended set, `no-unused-vars` as a warning with unused arguments allowed, `eqeqeq` smart, the React rules that catch real mistakes, and the two hooks rules. The `eslintConfig` block is gone from `package.json`. React 7 hooks plugin ships the React Compiler rules in its recommended preset; those are not enabled, since CRA never applied them and they flag the timer pattern in `Carousel` and `Repos`.
+
+Lint passes with 0 errors and 5 warnings, all left in place by decision and carried to Phase 4, when the components are reworked: the two `timeOut` warnings from Phase 0 (`exhaustive-deps` in `Carousel.jsx` and `Repos.jsx`, a `useRef` refactor), two `==` comparisons in `Repos.jsx`, and an unused `setActiveItem` in `Navbar.jsx`.
+
+Dependencies added: vitest 4, jsdom 26 (27 needs Node 20.19 or later; revisit in 1.9), eslint 9, `@eslint/js`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `globals`. npm warns that react-scripts' bundled config wants eslint 8; it goes in 1.6.
+
+Checks: Vite build, smoke, and visual diff at 1440 clean.
