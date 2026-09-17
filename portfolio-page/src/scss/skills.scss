@@ -1,4 +1,4 @@
-@import 'master-styles.scss';
+@use 'master-styles' as *;
 
 .skills {
   display: flex;
