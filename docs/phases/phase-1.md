@@ -70,6 +70,13 @@ Files: none changed in the repository.
 Work: check NuGet for a stable `MySql.EntityFrameworkCore` release targeting .NET 10 and EF Core 10, and for the matching `Microsoft.EntityFrameworkCore` 10.x and `Serilog.AspNetCore`, `Swashbuckle.AspNetCore` compatibility; note the .NET 10 SDK version installed on the Mac.
 Done-check: findings written to the phase notes and to the outbox handoff with a recommendation. No target framework change in this phase without approval.
 
+### 1.9 Pin the Node version (runs before 1.8)
+
+Goal: both machines build with the same Node line, and Vite can move to its current major.
+Files: `portfolio-page/.nvmrc` (new), `portfolio-page/package.json` (`engines` field, Vite 7 and matching React plugin), `docs/DESIGN.md` Section 4 runtime table, `docs/DEPLOY.md` prerequisites and launch checklist.
+Work: the owner installs the current Node LTS on the Mac first. Then pin it in `.nvmrc` and `engines`, bump Vite to 7, rebuild, re-run the visual diff, record the Node version in Section 4, and add "install the pinned Node version" to the launch checklist.
+Done-check: `node --version` matches `.nvmrc`; `npm run build` on Vite 7 passes; visual diff at 1440 clean; docs updated.
+
 ### 1.8 Acceptance and phase notes
 
 Goal: close the phase.
@@ -94,3 +101,13 @@ Scripts: `dev`, `build`, `preview` are Vite; `start`, `build:cra`, `test` remain
 Checks: Vite build 129.53 kB JS and 10.32 kB CSS gzipped (CRA: 133.55 kB and 9.99 kB). Smoke green on the Vite build served with `npx serve -s build -l 3000`. Visual diff at 1440: 0 differing pixels outside the ignored boxes. CRA build and the 4 tests still pass.
 
 Learned: the production build has an empty API base by design, so a local visual diff needs `VITE_API_BASE=https://localhost:5001 npm run build` (the Phase 0 baseline was built the same way with the CRA variable). Vite prints a CJS deprecation notice because `package.json` has no `"type": "module"`; that changes in 1.6 when react-scripts is gone.
+
+### 1.3 API base and service module (done 2026-09-16)
+
+`src/services/api.js` reads `VITE_API_BASE` once and exposes `apiUrl` plus the five requests the app makes (list, create, update, delete certifications; login). Home, Carousel, Developer, and LoginModal import from it; no component builds a URL. The temporary `define` bridge left `vite.config.js`, and the `REACT_APP_BACKEND_CALL` lines left both env files. Carousel had a fourth fetch that the Phase 0 inventory missed.
+
+Checks: Vite build, smoke, and visual diff clean. The CRA build still compiles. The three Jest suites now fail with "Cannot use 'import.meta' outside a module" because Jest under react-scripts parses modules as CommonJS; every suite reaches `api.js` through LoginModal. This is the gap 1.5 (Vitest) closes; nothing is patched in the CRA test setup.
+
+### 1.4 Sass modules (done 2026-09-16)
+
+`@import 'master-styles.scss'` became `@use 'master-styles' as *` in the eight section stylesheets. `master-styles.scss` holds only variables, so `as *` keeps every `$name` reference unchanged. The Google Fonts `@import url(...)` lines are plain CSS and stay. Sass 1.78 emits no deprecation warnings either way; the migration is done ahead of Sass 1.80, where `@import` starts warning. Visual diff clean, CRA build still compiles.
