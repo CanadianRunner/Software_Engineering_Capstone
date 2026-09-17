@@ -79,4 +79,8 @@ Done-check: every acceptance box above ticked or marked deferred with a reason; 
 
 ## Notes
 
-To be filled in as packages complete.
+### 1.1 Visual diff script (done 2026-09-16)
+
+`node scripts/visual-diff.mjs` captures `http://localhost:3000` at 1440 wide with the installed Chrome, compares against `docs/phases/screenshots/phase-0-v2-1440.png` with pixelmatch, writes capture and diff images to a temp folder, and exits non-zero if any pixel differs outside the ignored boxes. `--update` rewrites the baseline; `--url`, `--width`, `--baseline`, `--ignore x,y,w,h`, `--wait`, `--threshold`, `--out` override the defaults. Dependencies (puppeteer-core, pixelmatch, pngjs) are dev dependencies of `portfolio-page`; the script resolves them from there.
+
+Three regions are ignored by default at 1440 because they differ between captures of the same build: the chevrons under the splash, the desk video, and the resize grip of the contact textarea (anti-aliasing varies by a few pixels). Done-check on the Phase 0 CRA build: two consecutive runs, 0 differing pixels outside the ignored boxes.
