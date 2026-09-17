@@ -84,3 +84,13 @@ Done-check: every acceptance box above ticked or marked deferred with a reason; 
 `node scripts/visual-diff.mjs` captures `http://localhost:3000` at 1440 wide with the installed Chrome, compares against `docs/phases/screenshots/phase-0-v2-1440.png` with pixelmatch, writes capture and diff images to a temp folder, and exits non-zero if any pixel differs outside the ignored boxes. `--update` rewrites the baseline; `--url`, `--width`, `--baseline`, `--ignore x,y,w,h`, `--wait`, `--threshold`, `--out` override the defaults. Dependencies (puppeteer-core, pixelmatch, pngjs) are dev dependencies of `portfolio-page`; the script resolves them from there.
 
 Three regions are ignored by default at 1440 because they differ between captures of the same build: the chevrons under the splash, the desk video, and the resize grip of the contact textarea (anti-aliasing varies by a few pixels). Done-check on the Phase 0 CRA build: two consecutive runs, 0 differing pixels outside the ignored boxes.
+
+### 1.2 Vite scaffold alongside CRA (done 2026-09-16)
+
+Vite 6 and the React plugin added as dev dependencies (Vite 7 needs Node 20.19; this Mac has 20.18). `index.html` now sits at the frontend root with the module script; `public/index.html` stays for CRA until 1.6. `src/main.jsx` is the entry; `src/index.js` only imports it so CRA still boots. Fourteen components renamed to `.jsx`, same folders and names. `vite.config.js` sets the `build` output folder, port 3000 with `strictPort`, and the `@` alias, plus a temporary `define` that maps the CRA variable name to `VITE_API_BASE` until 1.3 removes it. Both env files carry both keys for now.
+
+Scripts: `dev`, `build`, `preview` are Vite; `start`, `build:cra`, `test` remain CRA until 1.6.
+
+Checks: Vite build 129.53 kB JS and 10.32 kB CSS gzipped (CRA: 133.55 kB and 9.99 kB). Smoke green on the Vite build served with `npx serve -s build -l 3000`. Visual diff at 1440: 0 differing pixels outside the ignored boxes. CRA build and the 4 tests still pass.
+
+Learned: the production build has an empty API base by design, so a local visual diff needs `VITE_API_BASE=https://localhost:5001 npm run build` (the Phase 0 baseline was built the same way with the CRA variable). Vite prints a CJS deprecation notice because `package.json` has no `"type": "module"`; that changes in 1.6 when react-scripts is gone.
