@@ -326,7 +326,7 @@ Markdown in `SiteSections` is rendered on the client and sanitized before render
 
 ## 9. Phases
 
-Each phase: Goal, Scope, Out of scope, Tasks, Acceptance, Rollback, Explore. Work happens on a branch named `v2-phase-N-short-name`, merged into `v2` by pull request when acceptance passes. Phase notes (what changed, what was learned, checklist results) go in `docs/phases/phase-N.md`.
+Each phase: Goal, Scope, Out of scope, Tasks, Acceptance, Rollback, Explore. Work happens on a branch named `v2-phase-N-short-name`, merged into `v2` by pull request when acceptance passes. Phase notes (what changed, what was learned, checklist results) go in `docs/phases/phase-N.md`. Each phase is broken into work packages in `docs/phases/phase-N.md` before work starts; each package is sized to a single session.
 
 ### Phase 0: Foundations
 
